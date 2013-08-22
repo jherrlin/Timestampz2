@@ -1,0 +1,4 @@
+= f.fields_for :student_day_classes do |builder|
+  = builder.label "Period #{period} Class"
+  = builder.select :day_class_id, options_from_collection_for_select(class_list, 'id', 'name'), prompt: "Select Class"
+  %br

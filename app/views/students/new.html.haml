@@ -1,0 +1,15 @@
+%h1 Add Students
+
+= form_for(@student) do |f|
+
+  = render partial: 'student_form', locals: { f: f }
+
+  = render partial: 'group_form', locals: { f: f }
+
+  = render partial: 'day_classes_form', locals: { f: f, period: 1, class_list: @day_classes_1 }
+  = render partial: 'day_classes_form', locals: { f: f, period: 2, class_list: @day_classes_2 }
+  = render partial: 'day_classes_form', locals: { f: f, period: 3, class_list: @day_classes_3 }
+  %br
+
+  = f.submit "Add Student", class: "btn btn-small btn-success", id: "submit-button"
+  = link_to "Done with Students", students_path, class: "btn btn-small btn-info button_link"

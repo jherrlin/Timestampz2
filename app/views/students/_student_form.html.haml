@@ -1,0 +1,7 @@
+= f.text_field :first_name, placeholder: "First Name"
+= f.text_field :last_name, placeholder: "Last Name"
+%br
+= f.select :school_id, options_from_collection_for_select(@schools, 'id', 'name'), prompt: "Select School"
+%br
+= f.select :grade_level, options_for_select([['6th grade', '6th grade'], ['7th grade', '7th grade'], ['8th grade', '8th grade']]), prompt: "Select Grade"
+%br

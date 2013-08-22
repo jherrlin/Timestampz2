@@ -11,6 +11,7 @@
         %th Due Date
         %th Class Assigned
         %th
+        %th
         - @assignments.each do |assignment|
           %tr
             %td
@@ -20,4 +21,10 @@
             %td
               = assignment.day_class.name
             %td
-              = button_to 'Delete', assignment_path(assignment), method: 'delete', class: "btn btn-mini btn-danger"
+              %span.label.label-info
+                %i.icon-edit
+                = link_to 'Edit', edit_assignment_path(assignment), class: "button_link"
+            %td
+              %span.label.label-important
+                %i.icon-trash
+                = link_to 'Delete', assignment_path(assignment), method: 'delete', class: "button_link"

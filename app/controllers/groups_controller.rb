@@ -5,8 +5,8 @@ class GroupsController < ApplicationController
 
   def create
     @group = Group.new(params[:group])
-    if @group.flash
-      save[:success] = "Group successfully created!"
+    if @group.save
+      flash[:success] = "Group successfully created!"
       redirect_to root_path
     else
       render :new
