@@ -52,7 +52,7 @@ group :development, :test do
   gem 'spork'
   gem 'guard-spork'
   gem 'guard-rspec'
-  gem 'factory_girl_rails', require: false
+  gem 'factory_girl_rails'
   gem 'shoulda-matchers'
   gem 'launchy'
   gem 'simplecov', :require => false
