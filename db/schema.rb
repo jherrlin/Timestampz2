@@ -13,31 +13,34 @@
 
 ActiveRecord::Schema.define(version: 20130803110304) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "assignments", force: true do |t|
     t.string   "name",         null: false
     t.date     "due_date",     null: false
     t.integer  "day_class_id", null: false
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "day_classes", force: true do |t|
     t.string   "period",     null: false
     t.string   "subject",    null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
     t.integer  "school_id",  null: false
     t.integer  "teacher_id"
     t.string   "name"
   end
 
   create_table "groups", force: true do |t|
-    t.string   "name",               null: false
-    t.string   "grade_level"
-    t.datetime "created_at",         null: false
-    t.datetime "updated_at",         null: false
     t.string   "teacher_first_name", null: false
     t.string   "teacher_last_name",  null: false
+    t.string   "name",               null: false
+    t.string   "grade_level"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "schools", force: true do |t|
@@ -51,22 +54,22 @@ ActiveRecord::Schema.define(version: 20130803110304) do
     t.integer  "assignment_id"
     t.datetime "completion_date"
     t.string   "comment"
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "student_day_classes", force: true do |t|
     t.integer  "student_id"
     t.integer  "day_class_id"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "student_groups", force: true do |t|
     t.integer  "student_id"
     t.integer  "group_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "students", force: true do |t|
@@ -74,8 +77,8 @@ ActiveRecord::Schema.define(version: 20130803110304) do
     t.string   "last_name",        null: false
     t.string   "grade_level",      null: false
     t.string   "homeroom_teacher"
-    t.datetime "created_at",       null: false
-    t.datetime "updated_at",       null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
     t.integer  "school_id",        null: false
   end
 
