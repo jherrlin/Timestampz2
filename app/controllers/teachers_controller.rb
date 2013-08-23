@@ -7,7 +7,7 @@ class TeachersController < ApplicationController
 
   def create
     @errors = []
-    params[:teacher].each_value do |attrs|
+    teacher_params.each_value do |attrs|
       @teacher = Teacher.new(attrs)
       @teacher.school_id = params[:school_id]
       @errors += @teacher.errors.full_messages unless @teacher.save 
@@ -23,6 +23,7 @@ class TeachersController < ApplicationController
     end  
   end
 
+
   # def index
   #   @teachers = Teacher.all
   # end
@@ -37,7 +38,7 @@ class TeachersController < ApplicationController
 
   def update
     @teacher = Teacher.find(params[:id])
-    if @teacher.update_attributes(params[:teacher])
+    if @teacher.update_attributes(teacher_params)
       flash[:success] = 'Teacher successfully updated'
       redirect_to schools_path
     else
@@ -50,4 +51,11 @@ class TeachersController < ApplicationController
     @teacher.destroy
     redirect_to schools_path
   end
+
+  private
+# :first_name, :last_name, :school_id
+  def teacher_params
+    params.require(:teacher).permit(:first_name,:last_name,:school_id)
+  end
+
 end
