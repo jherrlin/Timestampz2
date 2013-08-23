@@ -12,7 +12,7 @@
 #
 
 class DayClass < ActiveRecord::Base
-  attr_accessible :period, :subject, :name, :school_id, :teacher_id
+  attr_accessible :period, :subject, :name, :school_id, :teacher_id, :student_day_class_id
 
   has_many :student_day_classes
   has_many :students, through: :student_day_class
@@ -25,7 +25,11 @@ class DayClass < ActiveRecord::Base
   validates_presence_of :subject
   validates_presence_of :period
 
-  scope :by_name, order(:name)
+  scope :by_name, -> { order(:name) }
+  scope :period_one, -> { where(period: '1st') }
+  scope :period_two, -> { where(period: '2nd') }
+  scope :period_three, -> { where(period: '3rd') }
+
 
   def get_name
     "#{self.teacher.last_name}'s #{self.period} period #{self.subject}"

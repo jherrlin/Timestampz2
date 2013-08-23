@@ -15,6 +15,6 @@
         -@errors.each do |msg|
           %li= msg
 
-  = render partial: 'form', locals: { count: @count}
-
+  = render partial: 'form'
+  
   = submit_tag "Create Assignment", class: "btn btn-large btn-success", id: "submit-button"

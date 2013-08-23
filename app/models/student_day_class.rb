@@ -10,8 +10,10 @@
 #
 
 class StudentDayClass < ActiveRecord::Base
-  attr_accessible :day_class_id, :student_id
+  attr_accessible :day_class_id, :student_id, :id
 
   belongs_to :students
   belongs_to :day_class
+
+  delegate :period, to: :day_class
 end

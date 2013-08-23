@@ -1,0 +1,13 @@
+= form_tag(students_path)
+= label_tag "Period 1 Class"
+= select_tag "student[student_day_classes_attributes][0][day_class_id]", options_from_collection_for_select(@day_classes_1, 'id', 'name'), prompt: "Select Class"
+= hidden_field_tag "student[student_day_classes_attributes][0][id]", @student_day_class_1.id
+%br
+= label_tag "Period 2 Class"
+= select_tag "student[student_day_classes_attributes][1][day_class_id]", options_from_collection_for_select(@day_classes_2, 'id', 'name'), prompt: "Select Class"
+= hidden_field_tag "student[student_day_classes_attributes][1][id]", @student_day_class_2.id
+%br
+= label_tag "Period 1 Class"
+= select_tag "student[student_day_classes_attributes][2][day_class_id]", options_from_collection_for_select(@day_classes_3, 'id', 'name'), prompt: "Select Class"
+= hidden_field_tag "student[student_day_classes_attributes][2][id]", @student_day_class_3.id
+%br

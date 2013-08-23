@@ -1,0 +1,2 @@
+= f.fields_for :student_groups do |builder|
+  = builder.select :group_id, options_from_collection_for_select(@groups, 'id', 'teacher_last_name'), prompt: "Select Group"

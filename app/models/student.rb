@@ -13,21 +13,24 @@
 #
 
 class Student < ActiveRecord::Base
-  attr_accessible :grade_level, :homeroom_teacher, :first_name, :last_name
+  attr_accessible :grade_level, :homeroom_teacher, :first_name, :last_name, :school_id,
+                    :student_groups_attributes, :student_day_classes_attributes
 
-  has_many :student_groups
+  has_many :student_groups, dependent: :destroy
   has_many :groups, through: :student_groups
-  has_many :student_assignments
+  has_many :student_assignments, dependent: :destroy
   has_many :assignments, through: :student_assignments
-  has_many :student_day_classes
+  has_many :student_day_classes, dependent: :destroy
   has_many :day_classes, through: :student_day_classes
   belongs_to :school
+
+  accepts_nested_attributes_for :student_groups, :student_day_classes
 
   validates_presence_of :first_name
   validates_presence_of :last_name
   validates_presence_of :grade_level
 
-  scope :by_last_name, order("last_name")
+  scope :by_last_name, -> { order("last_name") }
 
   def name
     self.first_name + ' ' + self.last_name
@@ -40,5 +43,4 @@ class Student < ActiveRecord::Base
   def complete_percentage
     100 - incomplete_percentage
   end
-
 end

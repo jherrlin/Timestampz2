@@ -24,6 +24,14 @@ FactoryGirl.define do
     name "Sequoia"
   end
 
+  factory :student do
+    first_name "Betty"
+    last_name "Rubble"
+    association :school
+    association :group
+    association :day_class
+  end
+
   factory :teacher do
     first_name "Fred"
     last_name "Flintstone"

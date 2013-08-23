@@ -1,3 +1,7 @@
-%h2 Edit an Assignment
+%h2 Edit Assignment
+
+= form_tag(assignments_path)
 
 = render :partial => 'form'
+
+= submit_tag "Submit Changes", class: "btn btn-small btn-success", id: "submit-button"

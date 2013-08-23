@@ -1,0 +1,10 @@
+%h1 Edit Student
+
+= form_for(@student) do |f|
+
+  = render partial: 'student_form', locals: { f: f }
+  = render partial: 'group_form', locals: { f: f }
+  = render partial: 'day_classes_edit'
+
+  
+  = f.submit "Add Student", class: "btn btn-small btn-success", id: "submit-button"
