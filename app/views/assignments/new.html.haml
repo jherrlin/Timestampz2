@@ -7,13 +7,13 @@
 %br
 #assignment-forms
   = form_tag(assignments_path)
-  - if !@errors.blank?
-    #error_explanation
-      .alert.alert-error
-        ="There were #{ pluralize(@errors.count, "error") } in the last form "
-      %ul
-        -@errors.each do |msg|
-          %li= msg
+  / - if !@errors.blank?
+  /   #error_explanation
+  /     .alert.alert-error
+  /       ="There were #{ pluralize(@errors.count, "error") } in the last form "
+  /     %ul
+  /       -@errors.each do |msg|
+  /         %li= msg
 
   = render partial: 'form', locals: { count: @count}
 

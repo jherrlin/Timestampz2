@@ -23,9 +23,8 @@ class AssignmentsController < ApplicationController
       redirect_to assignments_path
     else
       @errors.uniq!
-      flash[:errors] = "Some assignment fields had errors. Please check to
-                    see if any assignments were not added."
-      redirect_to assignments_path
+      flash[:errors] = "All fields are required. Please complete all fields to create assignment."
+      render :action => "new"
     end
   end
 
