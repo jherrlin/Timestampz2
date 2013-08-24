@@ -6,7 +6,6 @@ Timestampz2::Application.routes.draw do
   resources :assignments
   match '/assignments/add_form', to: 'assignments#add_form', via: :get
 
-  
   resources :groups do
     resources :students, only: [:index, :show]
   end
@@ -17,6 +16,7 @@ Timestampz2::Application.routes.draw do
   end
 
   resources :students
+  resources :student_assignments
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
