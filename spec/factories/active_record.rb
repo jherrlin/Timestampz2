@@ -27,9 +27,8 @@ FactoryGirl.define do
   factory :student do
     first_name "Betty"
     last_name "Rubble"
+    grade_level "6th"
     association :school
-    association :group
-    association :day_class
   end
 
   factory :teacher do
